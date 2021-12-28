@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: './src/scripts',
+    entry: './src',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'script.min.js'

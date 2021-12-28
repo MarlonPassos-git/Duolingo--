@@ -1,12 +1,19 @@
-import hideRank from "./scripts/hideRank";
+import { hideRank } from "./scripts/home/hideRank";
+import weAreHome from "./scripts/home/weAreHome";
+import { styledHidle } from './scripts/addStyled';
 
-(function () {
+
+
+
+function start() {
     'use strict';
+
+    styledHidle()
 
     const CONFIG = {
         loopSpead: 500,
         home: {
-            hideRank: false,
+            hideRank: true,
             hideFriend: false,
         },
         stories: {
@@ -18,12 +25,16 @@ import hideRank from "./scripts/hideRank";
     }
 
 
-
-
     let loop = setInterval(() => {
         const URLcurrent = window.location.href
 
 
+        if (weAreHome(URLcurrent)) {
+
+            if (CONFIG.home.hideRank) {
+                hideRank()
+            }
+        }
 
         const regExp_weAreStudying = /www\.duolingo\.com\/skill\/.+/
 
@@ -43,7 +54,7 @@ import hideRank from "./scripts/hideRank";
             }
         }
 
-        console.log('oi')
+
 
         if (sound) {
             phase.classList.add('hideText')
@@ -58,7 +69,7 @@ import hideRank from "./scripts/hideRank";
         hasStyle()
 
     }, CONFIG.loopSpead)
-    loop()
+
 
     function hasStyle() {
 
@@ -74,4 +85,6 @@ import hideRank from "./scripts/hideRank";
 
 
 
-})();
+}
+
+document.onload(start())
