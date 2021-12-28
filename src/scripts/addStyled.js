@@ -3,6 +3,10 @@ export function styledHidle() {
         .hide {
             display: none;
         }
+
+        .height-auto {
+            height: auto !important;
+        }
     `
 
     document.body.insertAdjacentHTML('beforeend', `
