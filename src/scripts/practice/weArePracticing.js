@@ -3,6 +3,5 @@ export default function weArePracticing(url) {
 
     const response = regEx.test(url)
 
-    console.log(response)
     return response
 }
