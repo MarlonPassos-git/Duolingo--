@@ -1,4 +1,4 @@
-export function styledHidle() {
+export default function addStyled() {
     const style = `
         .hide {
             display: none;
@@ -15,11 +15,17 @@ export function styledHidle() {
         .hidePhaseWithSound:hover {
             color: #3c3c3c
         }
+
+        .container {
+            width: 75px;
+            height: 75px;
+            background-color: red;
+            position: fixed;
+            top: 100px;
+            z-index: 1000;
+            left: 26px;
+        }
     `
 
-    document.body.insertAdjacentHTML('beforeend', `
-        <style>
-            ${style}
-        </style>
-    `)
+    GM_addStyle(style)
 }

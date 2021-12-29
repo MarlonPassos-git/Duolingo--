@@ -1,31 +1,24 @@
 import { hideRank } from "./scripts/home/hideRank";
 import weAreHome from "./scripts/home/weAreHome";
-import { styledHidle } from './scripts/addStyled';
+import addStyled from './scripts/addStyled';
 import hideRankPeoples from "./scripts/home/hideRankPeoples";
 import weArePracticing from "./scripts/practice/weArePracticing";
 import hidePhaseWithSound from "./scripts/practice/hidePhaseWithSound";
+import { Howl, Howler } from 'howler';
+import addInterface from "./scripts/addInterface";
+import { getAudios, mostraFrases } from "./scripts/stories/getAudios";
+import { CONFIG } from "./scripts/config";
 
 
 
 function start() {
     'use strict';
+    let SomAtual;
+    addStyled()
+    addInterface(SomAtual)
+    getAudios(mostraFrases, SomAtual)
 
-    styledHidle()
-
-    const CONFIG = {
-        loopSpead: 500,
-        home: {
-            hideRank: false,
-            hideRankPeoples: true,
-            hideFriend: false,
-        },
-        stories: {
-
-        },
-        practice: {
-            hidePhaseWithSound: true,
-        }
-    }
+    window.__proto__.marlon = 1
 
 
     let loop = setInterval(() => {
@@ -50,50 +43,7 @@ function start() {
 
         }
 
-
-
-
-
-
-        /* let phase = document.querySelector('.ltr [data-test="hint-sentence"]')
-        let sound = document.querySelector('._21LCG')
-        let answer = document.querySelector('.YQ0lZ ')
-
-        document.onkeyup = function (key) {
-            if (key.which >= 49 && key.which <= 57) {
-
-                let wordBalloonsTop = document.querySelectorAll('._3NgMa div ._1Bh_M button')
-                let wordBalloonsBotoon = document.querySelectorAll('._1_wIY button')
-
-                wordBalloonsBotoon[key.which - 49].click()
-            }
-        }
-
-
-
-        if (sound) {
-            phase.classList.add('hideText')
-        } else {
-            phase.classList.remove('hideText')
-        }
-
-        if (answer) {
-            phase.classList.remove('hideText')
-        }
-
-        hasStyle() */
-
     }, CONFIG.loopSpead)
-
-
-    function hasStyle() {
-
-        let b = document.querySelector('.stylePlugin')
-        if (b == null) {
-            document.body.insertAdjacentHTML('beforeend', '<style class="stylePlugin"> .hideText {color: #FFF;}.hideText:hover {color: #3c3c3c}</style>')
-        }
-    }
-
 }
 
-document.onload(start())
+start()

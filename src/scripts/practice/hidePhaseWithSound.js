@@ -6,7 +6,7 @@ export default function hidePhaseWithSound() {
 
     const phase_container = document.querySelector(mergerClasses(class_balloon) + ' div[dir="ltr"] > span')
 
-    console.log(phase_container)
+
     if (phase_container) {
         phase_container.classList.add('hidePhaseWithSound')
     }
