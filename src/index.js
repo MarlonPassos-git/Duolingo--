@@ -8,17 +8,19 @@ import { Howl, Howler } from 'howler';
 import addInterface from "./scripts/addInterface";
 import { getAudios, mostraFrases } from "./scripts/stories/getAudios";
 import { CONFIG } from "./scripts/config";
+import { fixErrorOnTime } from "./scripts/practice/fixErrorOnTime";
 
 
 
 function start() {
     'use strict';
-    let SomAtual;
     addStyled()
+    /* let SomAtual;
+    
     addInterface(SomAtual)
     getAudios(mostraFrases, SomAtual)
 
-    window.__proto__.marlon = 1
+    */
 
 
     let loop = setInterval(() => {
@@ -40,6 +42,8 @@ function start() {
             if (CONFIG.practice.hidePhaseWithSound) {
                 hidePhaseWithSound()
             }
+            fixErrorOnTime()
+
 
         }
 
